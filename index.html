@@ -64,8 +64,8 @@ p{margin:0 0 14px;max-width:68ch}
 const ME = "Emma Jiren Wang";
 
 const SITE = {
-  name: "Emma (Jiren) Wang",
-  role: "Assistant Professor & Library Data Strategist, Virginia Tech",
+  name: "Emma Jiren Wang",
+  role: "Virginia Tech",
   contact: [
     ["Email", "mailto:jiren@vt.edu", "jiren@vt.edu"],
     ["LinkedIn", "https://www.linkedin.com/in/emma-wang-95a6032a5/", "LinkedIn"],
@@ -76,7 +76,7 @@ const SITE = {
 
 // Paragraphs of your bio (HTML allowed, e.g. <a href="...">link</a>)
 const ABOUT = [
-  "I am an Assistant Professor and Library Data Strategist at Virginia Tech, working at the intersection of digital libraries, human-computer interaction, and large language models. I earned my M.Eng. in Computer Science from Virginia Tech in 2025.",
+  "I am working at the intersection of digital libraries, human-computer interaction, and large language models. I earned my M.Eng. in Computer Science from Virginia Tech in 2025.",
   "My research asks how AI systems can support scholarly work and everyday communication, from evaluating retrieval and LLM-as-a-judge methods for library settings to designing expressive, culturally aware interfaces. I also build and maintain research data infrastructure for the University Libraries."
 ];
 
@@ -86,8 +86,7 @@ const INTERESTS = ["Digital Libraries", "LLM-as-a-Judge", "Human-Computer Intera
 const NEWS = [
   ["Oct 2026", "Guest lecture on Research Ethics and AI, Agricultural and Applied Economics, Virginia Tech."],
   ["2026", "Paper accepted to EMNLP 2026 (Main Conference)."],
-  ["2026", "PuppetChat published at CHI ’26; book-introduction evaluation paper published at JCDL ’26."],
-  ["Apr 2026", "Started as Assistant Professor at Virginia Tech."]
+  ["2026", "PuppetChat published at CHI ’26; book-introduction evaluation poster published at JCDL ’26."],
 ];
 
 // status: "Published" | "Under review" (used for the filter buttons)
@@ -104,10 +103,6 @@ const PUBS = [
   {status:"Published", title:"You Really Didn’t Get That? Benchmarking Social Pragmatic Inference for Indirect and Playful Chinese Online Comments",
    authors:"S. Hong, J. Ma, Emma Jiren Wang, E. Rong, S. Hu, H. Li, Z. Wang, Z. Lu", venue:"EMNLP 2026, Main Conference (accepted)", year:2026,
    links:[["arXiv","https://arxiv.org/abs/2609.04384"]]},
-  {status:"Published", title:"“In Algorithms We Trust, But in Feng Shui We Rest”: Exploring Culturally-Framed AI Nudges for Desk Organization and Everyday Wellbeing among Knowledge Workers",
-   authors:"Siying Hu, Emma Jiren Wang", venue:"PACM IMWUT / UbiComp-ISWC", year:2026, links:[]},
-  {status:"Published", title:"Motion2Prompt: Steering AI-Mediated Video Authoring via Motion-Driven Conducting Gestures",
-   authors:"Siying Hu, Emma Jiren Wang", venue:"PACM IMWUT / UbiComp-ISWC", year:2026, links:[]},
   {status:"Published", title:"Connecting Digital Scholarly Researcher Identifiers and University Systems: Assessment of Engineering Faculty at a Major Research Institution",
    authors:"S. Over, M. Yin, E. Mazure, C. Stovall, S. Khan, Emma Jiren Wang, C. Brain, R. A. Miles", venue:"ASEE Annual Conference & Exposition, Charlotte, NC", year:2026,
    links:[["Paper","https://nemo.asee.org/public/conferences/374/papers/52963/view"]]},
@@ -120,44 +115,40 @@ const PUBS = [
   {status:"Published", title:"Privacy-Preserving Hybrid Ensemble Model for Network Anomaly Detection: Balancing Security and Data Protection",
    authors:"S. Liu, Z. Zhao, W. He, Emma Jiren Wang, J. Peng, H. Ma", venue:"ICBAIE 2024, pp. 143–146", year:2024,
    links:[["DOI","https://doi.org/10.1109/ICBAIE63306.2024.11117041"]]},
-  {status:"Under review", title:"Existential Technologies during a Crisis: Pet Loss as a Case Study",
-   authors:"Emma Jiren Wang*, Qian Wan*, Mandi Yang (*co-first author)", venue:"International Journal of Human-Computer Studies", year:2026, links:[]},
   {status:"Under review", title:"Data-Centric Strategies for Patent Novelty Classification Beyond Structural Reasoning",
    authors:"S. Khan, Emma Jiren Wang, S. Over", venue:"Artificial Intelligence and Law", year:2026, links:[]},
-  {status:"Under review", title:"National-Historical Reasoning Across Languages: A Mechanistic Study of Multilingual LLMs",
-   authors:"S. Hong, J. Ma, M. Li, N. Sharma, Z. Shu, Emma Jiren Wang, K. Murray, Z. Lu", venue:"NAACL", year:2026, links:[]}
 ];
 
-const PROJECTS = [
-  {title:"ARC Large-Scale Research Data Transfer Infrastructure", where:"Virginia Tech University Libraries", when:"May 2025 – present",
-   text:"Automated workflows for moving large research datasets between institutional repositories and archival storage (Globus, Figshare, APTrust), with Python pipelines for preservation, metadata processing, and integrity checks, and Linux/Apache/Filebeat monitoring.", links:[]},
-  {title:"Automated Data Visualization for Research at HBCUs", where:"Virginia Tech Research Impact & Intelligence Lab", when:"Aug 2024 – May 2025",
-   text:"Mixed-methods study of research development and collaboration across HBCUs, combining interviews, Qualtrics surveys, GLMs, rank correlations, and a GPT-4 annotation pipeline benchmarked against manual coding.", links:[["Demo","https://public.tableau.com/app/profile/research.impact.intelligence/viz/HBCUResearchIP_17025832313250/HBCUsResearchOverview"]]},
-  {title:"PuppetChat", where:"DEER Lab, advised by Prof. Zhicong Lu", when:"Feb 2024 – Jun 2025",
-   text:"An interactive puppet-animation chat system for non-verbal communication, built with Socket.IO, React, Three.js, and Blender.", links:[["Demo","https://youtu.be/Obty8-frxKY"]]},
-  {title:"Elderly Healthcare Based on Motion-Sensing Technology", where:"National-Level Innovation and Entrepreneurship Project, China", when:"Aug 2022 – Jan 2023",
-   text:"A Kinect-based fitness game for older adults that tracks skeletal, depth, and color streams to support exercise and cognitive engagement.", links:[["Demo","https://www.youtube.com/watch?v=UHp7QR4VHXs"]]},
-  {title:"AI-assisted Interview Practice Platform", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://drive.google.com/file/d/1_uG26mLi2lhyHq139aG1OdbB7bifq4a6/view"],["Demo","https://questify.live/"]]},
-  {title:"OCR Expense Tracker and Calculator", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://www.youtube.com/watch?v=uscDv1eiCpo"],["Demo","https://www.youtube.com/watch?v=S0pfA-gGfxo"]]}
-];
+// const PROJECTS = [
+//   {title:"ARC Large-Scale Research Data Transfer Infrastructure", where:"Virginia Tech University Libraries", when:"May 2025 – present",
+//    text:"Automated workflows for moving large research datasets between institutional repositories and archival storage (Globus, Figshare, APTrust), with Python pipelines for preservation, metadata processing, and integrity checks, and Linux/Apache/Filebeat monitoring.", links:[]},
+//   {title:"Automated Data Visualization for Research at HBCUs", where:"Virginia Tech Research Impact & Intelligence Lab", when:"Aug 2024 – May 2025",
+//    text:"Mixed-methods study of research development and collaboration across HBCUs, combining interviews, Qualtrics surveys, GLMs, rank correlations, and a GPT-4 annotation pipeline benchmarked against manual coding.", links:[["Demo","https://public.tableau.com/app/profile/research.impact.intelligence/viz/HBCUResearchIP_17025832313250/HBCUsResearchOverview"]]},
+//   {title:"PuppetChat", where:"DEER Lab, advised by Prof. Zhicong Lu", when:"Feb 2024 – Jun 2025",
+//    text:"An interactive puppet-animation chat system for non-verbal communication, built with Socket.IO, React, Three.js, and Blender.", links:[["Demo","https://youtu.be/Obty8-frxKY"]]},
+//   {title:"Elderly Healthcare Based on Motion-Sensing Technology", where:"National-Level Innovation and Entrepreneurship Project, China", when:"Aug 2022 – Jan 2023",
+//    text:"A Kinect-based fitness game for older adults that tracks skeletal, depth, and color streams to support exercise and cognitive engagement.", links:[["Demo","https://www.youtube.com/watch?v=UHp7QR4VHXs"]]},
+//   {title:"AI-assisted Interview Practice Platform", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://drive.google.com/file/d/1_uG26mLi2lhyHq139aG1OdbB7bifq4a6/view"],["Demo","https://questify.live/"]]},
+//   {title:"OCR Expense Tracker and Calculator", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://www.youtube.com/watch?v=uscDv1eiCpo"],["Demo","https://www.youtube.com/watch?v=S0pfA-gGfxo"]]}
+// ];
 
-const TEACHING = [
-  ["Oct 2026", "Guest Instructor, “Research Ethics and Artificial Intelligence (AI),” Dept. of Agricultural and Applied Economics, Virginia Tech"],
-  ["Jan 2026", "Instructor, “Intro to R and RStudio,” Virginia Tech University Libraries"]
-];
+// const TEACHING = [
+//   ["Oct 2026", "Guest Instructor, “Research Ethics and Artificial Intelligence (AI),” Dept. of Agricultural and Applied Economics, Virginia Tech"],
+//   ["Jan 2026", "Instructor, “Intro to R and RStudio,” Virginia Tech University Libraries"]
+// ];
 
-const SERVICE = [
-  ["2026", "Reviewer, IEEE Transactions on Cybernetics"],
-  ["2026 – present", "Member, Virginia Tech Open Knowledge Committee"]
-];
+// const SERVICE = [
+//   ["2026", "Reviewer, IEEE Transactions on Cybernetics"],
+//   ["2026 – present", "Member, Virginia Tech Open Knowledge Committee"]
+// ];
 
-const EXPERIENCE = [
-  ["Apr 2026 – present", "Assistant Professor, Virginia Tech, Blacksburg, VA"],
-  ["Aug 2025 – present", "Library Data Strategist, Virginia Tech, Blacksburg, VA"],
-  ["May – Aug 2024", "Software Engineer Intern, Travel Partners.ai, Milpitas, CA"],
-  ["Feb – May 2024", "Software Engineer Intern, International Child Art Foundation, Washington, DC"],
-  ["Mar – Jun 2023", "Data Analyst Intern, Learnings Mobile Game Company, Beijing"]
-];
+// const EXPERIENCE = [
+//   ["Apr 2026 – present", "Assistant Professor, Virginia Tech, Blacksburg, VA"],
+//   ["Aug 2025 – present", "Library Data Strategist, Virginia Tech, Blacksburg, VA"],
+//   ["May – Aug 2024", "Software Engineer Intern, Travel Partners.ai, Milpitas, CA"],
+//   ["Feb – May 2024", "Software Engineer Intern, International Child Art Foundation, Washington, DC"],
+//   ["Mar – Jun 2023", "Data Analyst Intern, Learnings Mobile Game Company, Beijing"]
+// ];
 
 const EDUCATION = [
   ["2025", "M.Eng. in Computer Science, Virginia Tech (GPA 3.93/4.0)"],
