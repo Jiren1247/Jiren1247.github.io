@@ -59,6 +59,7 @@ p{margin:0 0 14px;max-width:68ch}
 /* ============================================================
    EDIT YOUR CONTENT HERE. Everything below is plain text.
    Add, remove or reorder items in any list; the page rebuilds itself.
+   An empty list [] hides its section.
    Your name in author lists is bolded automatically (see ME).
    ============================================================ */
 const ME = "Emma Jiren Wang";
@@ -82,11 +83,11 @@ const ABOUT = [
 
 const INTERESTS = ["Digital Libraries", "LLM-as-a-Judge", "Human-Computer Interaction", "RAG", "Library Data Curation", "Large Language Models", "Natural Language Processing"];
 
-// Short dated updates, newest first. Delete the block if you don’t want it.
+// Short dated updates, newest first. Use [] to hide the section.
 const NEWS = [
   ["Oct 2026", "Guest lecture on Research Ethics and AI, Agricultural and Applied Economics, Virginia Tech."],
   ["2026", "Paper accepted to EMNLP 2026 (Main Conference)."],
-  ["2026", "PuppetChat published at CHI ’26; book-introduction evaluation poster published at JCDL ’26."],
+  ["2026", "PuppetChat published at CHI ’26; book-introduction evaluation poster published at JCDL ’26."]
 ];
 
 // status: "Published" | "Under review" (used for the filter buttons)
@@ -116,39 +117,16 @@ const PUBS = [
    authors:"S. Liu, Z. Zhao, W. He, Emma Jiren Wang, J. Peng, H. Ma", venue:"ICBAIE 2024, pp. 143–146", year:2024,
    links:[["DOI","https://doi.org/10.1109/ICBAIE63306.2024.11117041"]]},
   {status:"Under review", title:"Data-Centric Strategies for Patent Novelty Classification Beyond Structural Reasoning",
-   authors:"S. Khan, Emma Jiren Wang, S. Over", venue:"Artificial Intelligence and Law", year:2026, links:[]},
+   authors:"S. Khan, Emma Jiren Wang, S. Over", venue:"Artificial Intelligence and Law", year:2026, links:[]}
 ];
 
-// const PROJECTS = [
-//   {title:"ARC Large-Scale Research Data Transfer Infrastructure", where:"Virginia Tech University Libraries", when:"May 2025 – present",
-//    text:"Automated workflows for moving large research datasets between institutional repositories and archival storage (Globus, Figshare, APTrust), with Python pipelines for preservation, metadata processing, and integrity checks, and Linux/Apache/Filebeat monitoring.", links:[]},
-//   {title:"Automated Data Visualization for Research at HBCUs", where:"Virginia Tech Research Impact & Intelligence Lab", when:"Aug 2024 – May 2025",
-//    text:"Mixed-methods study of research development and collaboration across HBCUs, combining interviews, Qualtrics surveys, GLMs, rank correlations, and a GPT-4 annotation pipeline benchmarked against manual coding.", links:[["Demo","https://public.tableau.com/app/profile/research.impact.intelligence/viz/HBCUResearchIP_17025832313250/HBCUsResearchOverview"]]},
-//   {title:"PuppetChat", where:"DEER Lab, advised by Prof. Zhicong Lu", when:"Feb 2024 – Jun 2025",
-//    text:"An interactive puppet-animation chat system for non-verbal communication, built with Socket.IO, React, Three.js, and Blender.", links:[["Demo","https://youtu.be/Obty8-frxKY"]]},
-//   {title:"Elderly Healthcare Based on Motion-Sensing Technology", where:"National-Level Innovation and Entrepreneurship Project, China", when:"Aug 2022 – Jan 2023",
-//    text:"A Kinect-based fitness game for older adults that tracks skeletal, depth, and color streams to support exercise and cognitive engagement.", links:[["Demo","https://www.youtube.com/watch?v=UHp7QR4VHXs"]]},
-//   {title:"AI-assisted Interview Practice Platform", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://drive.google.com/file/d/1_uG26mLi2lhyHq139aG1OdbB7bifq4a6/view"],["Demo","https://questify.live/"]]},
-//   {title:"OCR Expense Tracker and Calculator", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://www.youtube.com/watch?v=uscDv1eiCpo"],["Demo","https://www.youtube.com/watch?v=S0pfA-gGfxo"]]}
-// ];
-
-// const TEACHING = [
-//   ["Oct 2026", "Guest Instructor, “Research Ethics and Artificial Intelligence (AI),” Dept. of Agricultural and Applied Economics, Virginia Tech"],
-//   ["Jan 2026", "Instructor, “Intro to R and RStudio,” Virginia Tech University Libraries"]
-// ];
-
-// const SERVICE = [
-//   ["2026", "Reviewer, IEEE Transactions on Cybernetics"],
-//   ["2026 – present", "Member, Virginia Tech Open Knowledge Committee"]
-// ];
-
-// const EXPERIENCE = [
-//   ["Apr 2026 – present", "Assistant Professor, Virginia Tech, Blacksburg, VA"],
-//   ["Aug 2025 – present", "Library Data Strategist, Virginia Tech, Blacksburg, VA"],
-//   ["May – Aug 2024", "Software Engineer Intern, Travel Partners.ai, Milpitas, CA"],
-//   ["Feb – May 2024", "Software Engineer Intern, International Child Art Foundation, Washington, DC"],
-//   ["Mar – Jun 2023", "Data Analyst Intern, Learnings Mobile Game Company, Beijing"]
-// ];
+// Hidden sections. Fill one in to show it. Formats:
+// PROJECTS: {title, where, when, text, links:[["Demo","url"]]}
+// TEACHING / SERVICE / EXPERIENCE: ["date", "description"]
+const PROJECTS = [];
+const TEACHING = [];
+const SERVICE = [];
+const EXPERIENCE = [];
 
 const EDUCATION = [
   ["2025", "M.Eng. in Computer Science, Virginia Tech (GPA 3.93/4.0)"],
@@ -165,10 +143,9 @@ const SKILLS = [
 const $ = id => document.getElementById(id);
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
 const links = l => l.map(([t,u]) => `<a href="${u}">${t}</a>`).join(" · ");
-const rows = a => a.map(([d,t]) => `<div class="row"><div class="d">${d}</div><div>${t}</div></div>`).join("");
+const rows = a => a.length ? a.map(([d,t]) => `<div class="row"><div class="d">${d}</div><div>${t}</div></div>`).join("") : "";
 const authors = s => esc(s).split(ME).join(`<strong>${ME}</strong>`);
 
-document.title = SITE.name;
 $("name").textContent = SITE.name;
 $("role").innerHTML = SITE.role + `<br>${SITE.location}`;
 $("contact").innerHTML = SITE.contact.map(([k,u,t]) => `<li><a href="${u}">${t}</a></li>`).join("");
@@ -179,9 +156,9 @@ const pubItem = p => `<div class="pub" data-s="${p.status}"><div class="t">${esc
 
 const SECTIONS = [
   ["about","About", ABOUT.map(t=>`<p>${t}</p>`).join("") + `<p class="meta">${INTERESTS.join(" · ")}</p>`],
-  ["news","News", NEWS.length ? rows(NEWS) : ""],
-  ["publications","Publications",
-    `<div class="filters" role="group" aria-label="Filter publications">${["All","Published","Under review"].map((f,i)=>`<button data-f="${f}" aria-pressed="${i==0}">${f}</button>`).join("")}</div>` + PUBS.map(pubItem).join("")],
+  ["news","News", rows(NEWS)],
+  ["publications","Publications", PUBS.length ?
+    `<div class="filters" role="group" aria-label="Filter publications">${["All","Published","Under review"].map((f,i)=>`<button data-f="${f}" aria-pressed="${i==0}">${f}</button>`).join("")}</div>` + PUBS.map(pubItem).join("") : ""],
   ["projects","Projects", PROJECTS.map(p=>`<div class="pub"><div class="t">${esc(p.title)}</div>
     <div class="meta">${esc(p.where)}, ${p.when}${p.links.length ? " · " + links(p.links) : ""}</div>${p.text ? `<div>${esc(p.text)}</div>` : ""}</div>`).join("")],
   ["teaching","Teaching", rows(TEACHING)],
