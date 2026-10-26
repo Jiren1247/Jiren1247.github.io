@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Emma (Jiren) Wang | Digital Libraries, HCI, and LLMs</title>
+<meta name="description" content="Homepage of Emma (Jiren) Wang, Assistant Professor and Library Data Strategist at Virginia Tech. Research on digital libraries, human-computer interaction, and large language models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f9;--ink:#1d2430;--mute:#5d6676;--line:#d9dde4;--acc:#1b4f8a;--chip:#e8edf5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--ink:#e6e9ee;--mute:#9aa3b2;--line:#2b323d;--acc:#8db8ef;--chip:#212a38}}
+:root[data-theme="dark"]{--bg:#14181f;--ink:#e6e9ee;--mute:#9aa3b2;--line:#2b323d;--acc:#8db8ef;--chip:#212a38}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Source Serif 4",Georgia,serif}
+a{color:var(--acc);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;max-width:1040px;margin:0 auto;padding:56px 24px 80px}
+aside{position:sticky;top:48px;align-self:start;font-family:"Source Sans 3",system-ui,sans-serif;font-size:15.5px;line-height:1.5}
+aside h1{font:600 30px/1.15 "Source Serif 4",Georgia,serif;margin:0 0 6px}
+.role{color:var(--mute);margin:0 0 20px}
+aside ul,nav ul{list-style:none;margin:0;padding:0}
+aside li{margin:0 0 6px}
+nav{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
+nav a{display:block;padding:3px 0;color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--acc)}
+section{margin:0 0 52px}
+h2{font:600 22px/1.2 "Source Serif 4",Georgia,serif;margin:0 0 18px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+p{margin:0 0 14px;max-width:68ch}
+.meta{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;color:var(--mute)}
+.row{display:grid;grid-template-columns:110px 1fr;gap:16px;margin-bottom:12px}
+.row .d{font-family:"Source Sans 3",system-ui,sans-serif;font-size:14.5px;color:var(--mute);padding-top:2px}
+.pub{margin-bottom:18px}
+.pub .t{font-weight:600}
+.tag{display:inline-block;font:600 12.5px "Source Sans 3",system-ui,sans-serif;background:var(--chip);color:var(--acc);border-radius:3px;padding:1px 7px;margin-right:6px}
+.filters{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}
+.filters button{font:600 14px "Source Sans 3",system-ui,sans-serif;background:none;color:var(--mute);border:1px solid var(--line);border-radius:3px;padding:4px 12px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+.theme{margin-top:22px;font:14px "Source Sans 3",system-ui,sans-serif;background:none;border:0;color:var(--mute);cursor:pointer;padding:0;text-decoration:underline}
+@media(max-width:800px){.wrap{grid-template-columns:1fr;gap:28px;padding-top:32px}aside{position:static}nav ul{display:flex;flex-wrap:wrap;gap:4px 16px}nav a{padding:0}.row{grid-template-columns:1fr;gap:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside>
+  <h1 id="name"></h1>
+  <p class="role" id="role"></p>
+  <ul id="contact"></ul>
+  <nav aria-label="Sections"><ul id="nav"></ul></nav>
+  <button class="theme" id="theme">Switch light/dark</button>
+</aside>
+<main id="main"></main>
+</div>
+
+<script>
+/* ============================================================
+   EDIT YOUR CONTENT HERE. Everything below is plain text.
+   Add, remove or reorder items in any list; the page rebuilds itself.
+   Your name in author lists is bolded automatically (see ME).
+   ============================================================ */
+const ME = "Emma Jiren Wang";
+
+const SITE = {
+  name: "Emma (Jiren) Wang",
+  role: "Assistant Professor & Library Data Strategist, Virginia Tech",
+  contact: [
+    ["Email", "mailto:jiren@vt.edu", "jiren@vt.edu"],
+    ["LinkedIn", "https://www.linkedin.com/in/emma-wang-95a6032a5/", "LinkedIn"],
+    ["GitHub", "https://github.com/Jiren1247", "GitHub"]
+  ],
+  location: "Blacksburg, Virginia"
+};
+
+// Paragraphs of your bio (HTML allowed, e.g. <a href="...">link</a>)
+const ABOUT = [
+  "I am an Assistant Professor and Library Data Strategist at Virginia Tech, working at the intersection of digital libraries, human-computer interaction, and large language models. I earned my M.Eng. in Computer Science from Virginia Tech in 2025.",
+  "My research asks how AI systems can support scholarly work and everyday communication, from evaluating retrieval and LLM-as-a-judge methods for library settings to designing expressive, culturally aware interfaces. I also build and maintain research data infrastructure for the University Libraries."
+];
+
+const INTERESTS = ["Digital Libraries", "LLM-as-a-Judge", "Human-Computer Interaction", "RAG", "Library Data Curation", "Large Language Models", "Natural Language Processing"];
+
+// Short dated updates, newest first. Delete the block if you don’t want it.
+const NEWS = [
+  ["Oct 2026", "Guest lecture on Research Ethics and AI, Agricultural and Applied Economics, Virginia Tech."],
+  ["2026", "Paper accepted to EMNLP 2026 (Main Conference)."],
+  ["2026", "PuppetChat published at CHI ’26; book-introduction evaluation paper published at JCDL ’26."],
+  ["Apr 2026", "Started as Assistant Professor at Virginia Tech."]
+];
+
+// status: "Published" | "Under review" (used for the filter buttons)
+const PUBS = [
+  {status:"Published", title:"PuppetChat: Fostering Intimate Communication through Bidirectional Actions and Micronarratives",
+   authors:"Emma Jiren Wang, Siying Hu, Zhicong Lu", venue:"CHI ’26, Article 1295", year:2026,
+   links:[["DOI","https://doi.org/10.1145/3772318.3790685"]]},
+  {status:"Published", title:"Does Retrieval Relevance Matter for AI-Generated Book Introductions? A Matched-Random Memory Evaluation",
+   authors:"Emma Jiren Wang", venue:"JCDL ’26, Article 88", year:2026,
+   links:[["DOI","https://doi.org/10.1145/3805696.3846467"]]},
+  {status:"Published", title:"Patent Analyses and Technology Forecasting: Advances into Artificial Intelligence Technologies",
+   authors:"Sarah Over, Emma Jiren Wang, M. Shehryar Khan", venue:"Journal of the Patent and Trademark Resource Center Association 36(1)", year:2026,
+   links:[["Paper","https://open.clemson.edu/jptrca/vol36/iss1/1"]]},
+  {status:"Published", title:"You Really Didn’t Get That? Benchmarking Social Pragmatic Inference for Indirect and Playful Chinese Online Comments",
+   authors:"S. Hong, J. Ma, Emma Jiren Wang, E. Rong, S. Hu, H. Li, Z. Wang, Z. Lu", venue:"EMNLP 2026, Main Conference (accepted)", year:2026,
+   links:[["arXiv","https://arxiv.org/abs/2609.04384"]]},
+  {status:"Published", title:"“In Algorithms We Trust, But in Feng Shui We Rest”: Exploring Culturally-Framed AI Nudges for Desk Organization and Everyday Wellbeing among Knowledge Workers",
+   authors:"Siying Hu, Emma Jiren Wang", venue:"PACM IMWUT / UbiComp-ISWC", year:2026, links:[]},
+  {status:"Published", title:"Motion2Prompt: Steering AI-Mediated Video Authoring via Motion-Driven Conducting Gestures",
+   authors:"Siying Hu, Emma Jiren Wang", venue:"PACM IMWUT / UbiComp-ISWC", year:2026, links:[]},
+  {status:"Published", title:"Connecting Digital Scholarly Researcher Identifiers and University Systems: Assessment of Engineering Faculty at a Major Research Institution",
+   authors:"S. Over, M. Yin, E. Mazure, C. Stovall, S. Khan, Emma Jiren Wang, C. Brain, R. A. Miles", venue:"ASEE Annual Conference & Exposition, Charlotte, NC", year:2026,
+   links:[["Paper","https://nemo.asee.org/public/conferences/374/papers/52963/view"]]},
+  {status:"Published", title:"Reframing Ambiguity as Discovery: Non-Punitive Feedback in Tangible Vocabulary Learning",
+   authors:"Siying Hu, Jian Ma, Xiangzhe Yuan, Jiajun Wang, Zhenhao Zhang, Emma Jiren Wang", venue:"CHI EA ’26, Article 557", year:2026,
+   links:[["DOI","https://doi.org/10.1145/3772363.3798442"]]},
+  {status:"Published", title:"Libraries’ Role in Enabling New Engineering Research Investments: Working with Campus Research Administration Units",
+   authors:"S. Over, C. C. Comer, C. Stovall, Emma Jiren Wang, J. K. Hoch, E. S. Mazure, R. A. Miles", venue:"ASEE Annual Conference & Exposition, Montreal", year:2025,
+   links:[["Paper","https://peer.asee.org/56934"]]},
+  {status:"Published", title:"Privacy-Preserving Hybrid Ensemble Model for Network Anomaly Detection: Balancing Security and Data Protection",
+   authors:"S. Liu, Z. Zhao, W. He, Emma Jiren Wang, J. Peng, H. Ma", venue:"ICBAIE 2024, pp. 143–146", year:2024,
+   links:[["DOI","https://doi.org/10.1109/ICBAIE63306.2024.11117041"]]},
+  {status:"Under review", title:"Existential Technologies during a Crisis: Pet Loss as a Case Study",
+   authors:"Emma Jiren Wang*, Qian Wan*, Mandi Yang (*co-first author)", venue:"International Journal of Human-Computer Studies", year:2026, links:[]},
+  {status:"Under review", title:"Data-Centric Strategies for Patent Novelty Classification Beyond Structural Reasoning",
+   authors:"S. Khan, Emma Jiren Wang, S. Over", venue:"Artificial Intelligence and Law", year:2026, links:[]},
+  {status:"Under review", title:"National-Historical Reasoning Across Languages: A Mechanistic Study of Multilingual LLMs",
+   authors:"S. Hong, J. Ma, M. Li, N. Sharma, Z. Shu, Emma Jiren Wang, K. Murray, Z. Lu", venue:"NAACL", year:2026, links:[]}
+];
+
+const PROJECTS = [
+  {title:"ARC Large-Scale Research Data Transfer Infrastructure", where:"Virginia Tech University Libraries", when:"May 2025 – present",
+   text:"Automated workflows for moving large research datasets between institutional repositories and archival storage (Globus, Figshare, APTrust), with Python pipelines for preservation, metadata processing, and integrity checks, and Linux/Apache/Filebeat monitoring.", links:[]},
+  {title:"Automated Data Visualization for Research at HBCUs", where:"Virginia Tech Research Impact & Intelligence Lab", when:"Aug 2024 – May 2025",
+   text:"Mixed-methods study of research development and collaboration across HBCUs, combining interviews, Qualtrics surveys, GLMs, rank correlations, and a GPT-4 annotation pipeline benchmarked against manual coding.", links:[["Demo","https://public.tableau.com/app/profile/research.impact.intelligence/viz/HBCUResearchIP_17025832313250/HBCUsResearchOverview"]]},
+  {title:"PuppetChat", where:"DEER Lab, advised by Prof. Zhicong Lu", when:"Feb 2024 – Jun 2025",
+   text:"An interactive puppet-animation chat system for non-verbal communication, built with Socket.IO, React, Three.js, and Blender.", links:[["Demo","https://youtu.be/Obty8-frxKY"]]},
+  {title:"Elderly Healthcare Based on Motion-Sensing Technology", where:"National-Level Innovation and Entrepreneurship Project, China", when:"Aug 2022 – Jan 2023",
+   text:"A Kinect-based fitness game for older adults that tracks skeletal, depth, and color streams to support exercise and cognitive engagement.", links:[["Demo","https://www.youtube.com/watch?v=UHp7QR4VHXs"]]},
+  {title:"AI-assisted Interview Practice Platform", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://drive.google.com/file/d/1_uG26mLi2lhyHq139aG1OdbB7bifq4a6/view"],["Demo","https://questify.live/"]]},
+  {title:"OCR Expense Tracker and Calculator", where:"Course project", when:"Sep – Dec 2024", text:"", links:[["Pitch","https://www.youtube.com/watch?v=uscDv1eiCpo"],["Demo","https://www.youtube.com/watch?v=S0pfA-gGfxo"]]}
+];
+
+const TEACHING = [
+  ["Oct 2026", "Guest Instructor, “Research Ethics and Artificial Intelligence (AI),” Dept. of Agricultural and Applied Economics, Virginia Tech"],
+  ["Jan 2026", "Instructor, “Intro to R and RStudio,” Virginia Tech University Libraries"]
+];
+
+const SERVICE = [
+  ["2026", "Reviewer, IEEE Transactions on Cybernetics"],
+  ["2026 – present", "Member, Virginia Tech Open Knowledge Committee"]
+];
+
+const EXPERIENCE = [
+  ["Apr 2026 – present", "Assistant Professor, Virginia Tech, Blacksburg, VA"],
+  ["Aug 2025 – present", "Library Data Strategist, Virginia Tech, Blacksburg, VA"],
+  ["May – Aug 2024", "Software Engineer Intern, Travel Partners.ai, Milpitas, CA"],
+  ["Feb – May 2024", "Software Engineer Intern, International Child Art Foundation, Washington, DC"],
+  ["Mar – Jun 2023", "Data Analyst Intern, Learnings Mobile Game Company, Beijing"]
+];
+
+const EDUCATION = [
+  ["2025", "M.Eng. in Computer Science, Virginia Tech (GPA 3.93/4.0)"],
+  ["2023", "B.A. in Business Administration and Management, China University of Geosciences, Beijing (GPA 3.6/4.0)"]
+];
+
+const SKILLS = [
+  ["Languages", "JavaScript, TypeScript, Python, Java, SQL, HTML/CSS, Unity"],
+  ["Tools", "PyTorch, TensorFlow, React, Next.js, Node.js, REST APIs, MongoDB, OAuth 2.0, AWS S3"]
+];
+
+/* ================= END OF EDITABLE CONTENT ================= */
+
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const links = l => l.map(([t,u]) => `<a href="${u}">${t}</a>`).join(" · ");
+const rows = a => a.map(([d,t]) => `<div class="row"><div class="d">${d}</div><div>${t}</div></div>`).join("");
+const authors = s => esc(s).split(ME).join(`<strong>${ME}</strong>`);
+
+document.title = SITE.name;
+$("name").textContent = SITE.name;
+$("role").innerHTML = SITE.role + `<br>${SITE.location}`;
+$("contact").innerHTML = SITE.contact.map(([k,u,t]) => `<li><a href="${u}">${t}</a></li>`).join("");
+
+const pubItem = p => `<div class="pub" data-s="${p.status}"><div class="t">${esc(p.title)}</div>
+  <div>${authors(p.authors)}</div>
+  <div class="meta"><span class="tag">${p.status}</span><em>${esc(p.venue)}</em>, ${p.year}${p.links.length ? " · " + links(p.links) : ""}</div></div>`;
+
+const SECTIONS = [
+  ["about","About", ABOUT.map(t=>`<p>${t}</p>`).join("") + `<p class="meta">${INTERESTS.join(" · ")}</p>`],
+  ["news","News", NEWS.length ? rows(NEWS) : ""],
+  ["publications","Publications",
+    `<div class="filters" role="group" aria-label="Filter publications">${["All","Published","Under review"].map((f,i)=>`<button data-f="${f}" aria-pressed="${i==0}">${f}</button>`).join("")}</div>` + PUBS.map(pubItem).join("")],
+  ["projects","Projects", PROJECTS.map(p=>`<div class="pub"><div class="t">${esc(p.title)}</div>
+    <div class="meta">${esc(p.where)}, ${p.when}${p.links.length ? " · " + links(p.links) : ""}</div>${p.text ? `<div>${esc(p.text)}</div>` : ""}</div>`).join("")],
+  ["teaching","Teaching", rows(TEACHING)],
+  ["service","Service", rows(SERVICE)],
+  ["experience","Experience", rows(EXPERIENCE)],
+  ["education","Education", rows(EDUCATION)],
+  ["skills","Skills", rows(SKILLS)]
+].filter(s => s[2]);
+
+$("main").innerHTML = SECTIONS.map(([id,t,h]) => `<section id="${id}"><h2>${t}</h2>${h}</section>`).join("");
+$("nav").innerHTML = SECTIONS.map(([id,t]) => `<li><a href="#${id}">${t}</a></li>`).join("");
+
+document.querySelectorAll(".filters button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  document.querySelectorAll(".pub[data-s]").forEach(p => p.hidden = b.dataset.f !== "All" && p.dataset.s !== b.dataset.f);
+});
+
+$("theme").onclick = () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+};
+</script>
+</body>
+</html>
